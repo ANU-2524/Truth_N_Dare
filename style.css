@@ -1,0 +1,133 @@
+/* Body with animated rainbow background */
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+  background-size: 600% 600%;
+  animation: rainbowBG 12s ease infinite;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden;
+  cursor: url('https://cur.cursors-4u.net/symbols/sym-7/sym661.cur'), auto;
+}
+
+@keyframes rainbowBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Main container with fun pop-in effect */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 3px dashed #fff;
+  border-radius: 25px;
+  padding: 50px 40px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+  animation: popIn 1s ease;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Fun title */
+h1 {
+  font-size: 3rem;
+  color: #ffec99;
+  text-shadow: 2px 2px 5px #000;
+  animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+/* Input field */
+input[type="text"] {
+  padding: 12px;
+  font-size: 18px;
+  border: 2px dashed #fff;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:focus {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #ffec99;
+}
+
+/* Button with disco lights effect */
+button {
+  padding: 14px 24px;
+  font-size: 20px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  cursor: pointer;
+  animation: glow 1s infinite alternate;
+  transition: transform 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #00f2fe; }
+  100% { box-shadow: 0 0 30px #4facfe; }
+}
+
+/* Result section */
+#truth-or-dare {
+  margin-top: 30px;
+}
+
+/* Comic bubble style result */
+#result {
+  font-size: 1.6rem;
+  background: #fff;
+  color: #222;
+  padding: 30px;
+  border-radius: 20px;
+  border: 3px solid #000;
+  box-shadow: 4px 4px #000;
+  font-family: 'Fredoka One', cursive;
+  animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}

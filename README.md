@@ -6,7 +6,7 @@ Welcome to the **Truth or Dare Game** — a fun, interactive web-based game buil
 
 ## 🚀 Live Demo
 
-👉 [Play it Live Here](https://your-deployment-link.com)  
+👉 [Play it Live Here](truth-n-dare-enjoygame.vercel.app)  
 (*Replace the link above with your actual deployed URL once hosted*)
 
 ---
@@ -29,10 +29,5 @@ Welcome to the **Truth or Dare Game** — a fun, interactive web-based game buil
 
 ---
 
-## 📸 Preview
-
-![screenshot](https://your-screenshot-link.com)  
-(*Add a screenshot or GIF to showcase the UI*)
-
----
+ 
 

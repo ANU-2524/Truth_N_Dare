@@ -30,6 +30,8 @@ body {
   text-align: center;
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
   animation: popIn 1s ease;
+  width: 90%;
+  max-width: 500px;
 }
 
 @keyframes popIn {
@@ -130,4 +132,16 @@ button:hover {
   100% {
     transform: scale(1);
   }
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: #000;  /* Black text */
+  opacity: 1;
+  font-weight: bold;
 }

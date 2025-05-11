@@ -36,9 +36,3 @@ Welcome to the **Truth or Dare Game** — a fun, interactive web-based game buil
 
 ---
 
-## 📦 How to Run Locally
-
-```bash
-git clone https://github.com/your-username/truth-or-dare-game.git
-cd truth-or-dare-game
-# Then just open index.html in your browser

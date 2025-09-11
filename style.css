@@ -1,147 +1,175 @@
-/* Body with animated rainbow background */
+
 body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-  background-size: 600% 600%;
-  animation: rainbowBG 12s ease infinite;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  min-height: 100vh;
   margin: 0;
+  color: #f3f3f3;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  color: #fff;
-  overflow: hidden;
-  cursor: url('https://cur.cursors-4u.net/symbols/sym-7/sym661.cur'), auto;
+  background: 
+    radial-gradient(circle at 15% 20%, #00c3ff55 0%, transparent 60%),
+    radial-gradient(circle at 85% 80%, #fd6e6a55 0%, transparent 60%),
+    radial-gradient(circle at 50% 100%, #f9d42344 0%, transparent 60%),
+    repeating-linear-gradient(135deg, #232526 0 10px, #414345 10px 20px);
+  z-index: 0;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: bgMove 18s linear infinite alternate;
 }
 
-@keyframes rainbowBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+@keyframes bgMove {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.05) translateY(-20px); }
 }
 
-/* Main container with fun pop-in effect */
+
 .container {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 3px dashed #fff;
-  border-radius: 25px;
-  padding: 50px 40px;
+  background: rgba(34, 36, 38, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 8px 40px 0 #00c3ff22, 0 2px 8px #fd6e6a22;
+  padding: 48px 36px 36px 36px;
   text-align: center;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
-  animation: popIn 1s ease;
-  width: 90%;
-  max-width: 500px;
+  width: 92%;
+  max-width: 440px;
+  border: 2.5px solid #222;
+  position: relative;
+  z-index: 1;
+  animation: popIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
 @keyframes popIn {
-  0% {
-    transform: scale(0.6);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.7) rotate(-6deg); opacity: 0; }
+  60% { transform: scale(1.05) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
 }
 
-/* Fun title */
+
 h1 {
-  font-size: 3rem;
-  color: #ffec99;
-  text-shadow: 2px 2px 5px #000;
-  animation: wiggle 2s infinite;
+  font-size: 2.5rem;
+  color: #00c3ff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px #232526cc, 0 1px 0 #fff2;
+  animation: bounceTitle 2.2s infinite alternate;
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-1deg); }
-  50% { transform: rotate(1deg); }
+@keyframes bounceTitle {
+  0% { transform: translateY(0); }
+  60% { transform: translateY(-8px) scale(1.04); }
+  100% { transform: translateY(0); }
 }
 
-/* Input field */
+
 input[type="text"] {
-  padding: 12px;
-  font-size: 18px;
-  border: 2px dashed #fff;
+  padding: 13px 16px;
+  font-size: 1.15rem;
+  border: 2.5px solid #00c3ff;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: #232526;
+  color: #f3f3f3;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   text-align: center;
   outline: none;
-  transition: 0.3s ease;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  box-shadow: 0 1.5px 8px #00c3ff33;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input[type="text"]:focus {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: #ffec99;
+  border-color: #fd6e6a;
+  background: #232526;
+  box-shadow: 0 2.5px 16px #fd6e6a66;
 }
 
-/* Button with disco lights effect */
+
 button {
-  padding: 14px 24px;
-  font-size: 20px;
-  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  padding: 14px 36px;
+  font-size: 1.18rem;
+  background: linear-gradient(90deg, #00c3ff 0%, #fd6e6a 100%);
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   color: #fff;
-  font-weight: bold;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  font-weight: 800;
+  box-shadow: 0 2px 16px #00c3ff33;
   cursor: pointer;
-  animation: glow 1s infinite alternate;
-  transition: transform 0.3s;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, #fff3 0%, #fff0 100%);
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 button:hover {
-  transform: scale(1.1) rotate(-2deg);
-}
-
-@keyframes glow {
-  0% { box-shadow: 0 0 10px #00f2fe; }
-  100% { box-shadow: 0 0 30px #4facfe; }
+  background: linear-gradient(90deg, #fd6e6a 0%, #00c3ff 100%);
+  transform: scale(1.07) rotate(-1deg);
+  box-shadow: 0 4px 24px #fd6e6a99;
 }
 
 /* Result section */
+
 #truth-or-dare {
-  margin-top: 30px;
+  margin-top: 32px;
 }
 
-/* Comic bubble style result */
 #result {
-  font-size: 1.6rem;
-  background: #fff;
-  color: #222;
-  padding: 30px;
-  border-radius: 20px;
-  border: 3px solid #000;
-  box-shadow: 4px 4px #000;
-  font-family: 'Fredoka One', cursive;
-  animation: bounceIn 0.6s ease;
+  font-size: 1.25rem;
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  color: #00c3ff;
+  padding: 28px 20px;
+  border-radius: 12px;
+  border: 2.5px solid #00c3ff;
+  box-shadow: 0 2.5px 16px #00c3ff33;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  margin-top: 10px;
+  min-height: 48px;
+  transition: background 0.2s, color 0.2s;
+  animation: resultPop 0.7s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.3);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
+@keyframes resultPop {
+  0% { transform: scale(0.7) rotate(-2deg); opacity: 0; }
+  60% { transform: scale(1.08) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
 }
 
-/* Footer */
+
 footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 16px;
   width: 100%;
   text-align: center;
-  font-size: 1rem;
-  color: #000;  /* Black text */
-  opacity: 1;
-  font-weight: bold;
+  font-size: 1.08rem;
+  color: #f9d423;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: none;
+  opacity: 0.97;
+  text-shadow: 0 1px 8px #23252688;
+  z-index: 2;
 }
